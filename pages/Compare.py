@@ -30,7 +30,7 @@ fig.tight_layout()
 st.pyplot(fig)
 
 df31=[float(i) if str(i).isnumeric() else 0 for i in df1.values.tolist()[0][21:-1]]
-df4=[float(i) for i in df2.values.tolist()[0][21:-1]]
+df4=[[float(i) if str(i).isnumeric() else 0 for i in df2.values.tolist()[0][21:-1]]
 df3=df3.values.tolist()[21:-1]
 fig2, ax2 = plt.subplots()
 ax2.bar(df3,df31,+0.4,align='edge',bottom=0)
