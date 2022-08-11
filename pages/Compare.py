@@ -12,6 +12,18 @@ df = pickle.load(open("mypickle.pickle",'rb'))
 sn1 = st.text_input('Enter a Seat No.', '7280255')
 sn2 = st.text_input('Enter another Seat No.', '7280325')
 
+df.drop(df[df[option] == '--'].index, inplace = True)
+df.drop(df[df[option] == 'null'].index, inplace = True)
+df.drop(df[df[option] == 0].index, inplace = True)
+df.drop(df[df[option] == '0;'].index, inplace = True)
+df.drop(df[df[option] == '00;'].index, inplace = True)
+df.drop(df[df[option] == '.00;'].index, inplace = True)
+df.drop(df[df[option] == '--'].index, inplace = True)
+df.drop(df[df[option] == '--;'].index, inplace = True)
+df.drop(df[df[option] == '0'].index, inplace = True)
+
+
+
 df1=df[df['Seat No.']==sn1]
 df2=df[df['Seat No.']==sn2]
 df3=df.columns
