@@ -12,17 +12,6 @@ df = pickle.load(open("mypickle.pickle",'rb'))
 sn1 = st.text_input('Enter a Seat No.', '7280255')
 sn2 = st.text_input('Enter another Seat No.', '7280325')
 
-df.drop(df[df[option] == '--'].index, inplace = True)
-df.drop(df[df[option] == 'null'].index, inplace = True)
-df.drop(df[df[option] == 0].index, inplace = True)
-df.drop(df[df[option] == '0;'].index, inplace = True)
-df.drop(df[df[option] == '00;'].index, inplace = True)
-df.drop(df[df[option] == '.00;'].index, inplace = True)
-df.drop(df[df[option] == '--'].index, inplace = True)
-df.drop(df[df[option] == '--;'].index, inplace = True)
-df.drop(df[df[option] == '0'].index, inplace = True)
-
-
 
 df1=df[df['Seat No.']==sn1]
 df2=df[df['Seat No.']==sn2]
@@ -40,7 +29,7 @@ ax.bar(df3a,df2b,-0.4,align='edge',bottom=0)
 fig.tight_layout()
 st.pyplot(fig)
 
-df31=[float(i) for i in df1.values.tolist()[0][21:-1]]
+df31=[float(i) if i.isnumeric() else 0 for i in df1.values.tolist()[0][21:-1]]
 df4=[float(i) for i in df2.values.tolist()[0][21:-1]]
 df3=df3.values.tolist()[21:-1]
 fig2, ax2 = plt.subplots()
