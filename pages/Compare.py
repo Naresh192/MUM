@@ -10,7 +10,7 @@ plt.rcParams["figure.figsize"] = (20,10)
 df = pickle.load(open("mypickle.pickle",'rb'))
 
 sn1 = st.text_input('Enter a Seat No.', '7280255')
-sn2 = st.text_input('Enter another Seat No.', '7280325')
+sn2 = st.text_input('Enter another Seat No.', '7280326')
 
 
 df1=df[df['Seat No.']==sn1]
